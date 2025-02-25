@@ -6,7 +6,7 @@ public class Raca {
     public Raca(String nome, int vidaPorLvl, int vidaInicial) {
         this.nome = nome;
         this.vidaPorLvl = vidaPorLvl;
-        this.vidaInicial = vidaInicial;
+        this.vidaInicial  = vidaInicial;
     }
 
     public int getVidaPorLvl() {
