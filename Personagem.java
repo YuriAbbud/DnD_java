@@ -1,58 +1,70 @@
-public class Personagem {
+public abstract class Personagem {
+    private int vidaMaxima, vidaAtual, dano, exp, coins, level;
     private String nome;
-    private int vidaTotal;
-    private int vidaAtual;
-    private int coins;
-    private int dano;
 
-    public Personagem(String nome, int vidaTotal, int vidaAtual, int coins, int dano) {
-        this.nome = nome;
-        this.vidaTotal = vidaTotal;
+    // getters
+    public int getVidaMaxima() {
+        return this.vidaMaxima;
+    }
+
+    public int getVidaAtual() {
+        return this.vidaAtual;
+    }
+
+    public int getDano() {
+        return this.dano;
+    }
+
+    public int getExp() {
+        return this.exp;
+    }
+
+    public int getCoins() {
+        return this.coins;
+    }
+
+    public int getLevel() {
+        return this.level;
+    }
+
+    public String getNome() {
+        return this.nome;
+    }
+
+    // setters
+    public void setVidaMaxima(int vidaMaxima) {
+        this.vidaMaxima = vidaMaxima;
+    }
+
+    public void setVidaAtual(int vidaAtual) {
         this.vidaAtual = vidaAtual;
-        this.coins = coins;
+    }
+
+    public void setDano(int dano) {
         this.dano = dano;
     }
 
-    public void atacar(Personagem alvo, int dano) {
-        alvo.vidaAtual -= dano;
+    public void setExp(int exp) {
+        this.exp = exp;
+    }
 
-        if (alvo.vidaAtual < 0) {
+    public void setCoins(int coins) {
+        this.coins = coins;
+    }
+
+    public void setLevel(int level) {
+        this.level = level;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    // funções
+    public void atacar(Personagem alvo) {
+        alvo.setVidaAtual(alvo.getVidaAtual() - this.dano);
+        if (alvo.getVidaAtual() <= 0) {
             // Morreu
         }
     }
-
-    // setters - definem como a variavel vai receber o valores, pensar em como fazer o vidaAtual
-    public void setNome(String heroiNome) {
-        nome = heroiNome;
-    }
-    public void setVidaTotal(int maxVida) {
-        vidaTotal = maxVida;
-    }
-    public void setVidaAtual(int vida, int dano) {
-        vidaAtual -= dano;
-    }
-    public void setCoins(int coin) {
-        coins += coin;
-    }
-    public void setDano(int danos) {
-        dano = danos;
-    }
-
-    // getters - retorna os valores da variavel desejada, no caso do inimigo, teriamos uma tabela com o nome deles (algo genérico como Ladrão, Elfo-Negro ou sla), estudar em como pegar o valor da tabela
-    public String getNome() {
-        return nome;
-    }
-    public int getVidaTotal() {
-        return vidaTotal;
-    }
-    public int getVidaAtual() {
-        return vidaAtual;
-    }
-    public int getCoins() {
-        return coins;
-    }
-    public int getDano() {
-        return dano;
-    }
-
 }

@@ -1,54 +1,40 @@
+import  java.util.Scanner;
+
 public class Heroi extends Personagem {
-    // Superclass Personagem: private String nome; private int vidaTotal; private int vidaAtual; private int coins
-    private String classe;
-    private String race;
-    private int level;
-    private int exp;
-    
-    public Heroi(String nome, int vidaTotal, int vidaAtual, int coins, int dano, String classe, String race, int level) {
-        super(nome, vidaTotal, vidaAtual, coins, dano);
-        this.classe = classe;
-        this.race = race;
-        this.level = 1;
-        this.exp = 0;
+    Scanner scanner = new Scanner(System.in);
+    private Raca raca;
+
+    public Heroi() {
+        System.out.println("Digite o nome do Heroi: ");
+        setNome(scanner.nextLine());
+
+        System.out.println("Escolha uma raça: ");
+        // Precisa ser uma classe? Da pra ser um mapa e boa boa
+        // switch case para escolher raça e criar apenas o espaço necessário 
+
+        System.out.println("Escolha uma classe: ");
+
+        setVidaAtual(raca.getVidaInicial());
+        setVidaMaxima(raca.getVidaInicial());
+        setLevel(1);
+        setExp(0);
     }
 
-    public void ganharExp(int quantidade) {
-        this.exp += quantidade;
+    public void subirLevel() {
+        if (this.getExp() >= (this.getLevel() * 100)) {
+            // Administra o XP
+            this.setExp(getExp() - (this.getLevel() * 100));
+            this.setLevel(this.getLevel() + 1);
 
-        while (this.exp >= (this.level*100)) {
-            this.exp -= this.level*100;
-            this.level++;
-            // Subiu de nível!
+            // Aumenta a vida máxima e soma metade da vida por lvl na vida atual
+            this.setVidaMaxima(this.getVidaMaxima() + this.raca.getVidaPorLvl());
+            this.setVidaAtual(this.getVidaAtual() + (this.raca.getVidaPorLvl() / 2));
         }
     }
 
-    // setters
-    // Tanto Classe como Raça deveria ter uma tabela, estudar como buscar dessa tabela, .txt daria talvez 
-    public void setClasse(String classes) {
-        classe = classes; // isso aqui ta uma merda
-    }
-    public void setRace(String races) {
-        race = races; // isso aqui ta uma merda
-    }
-    public void setLevel(int lvl) {
-        level = lvl; // isso aqui ta uma merda
-    }
-    public void setExp(int xp) {
-        exp = xp; // isso aqui ta uma merda
-    }
-    
-    // getters
-    public String getClasse() {
-        return classe;
-    }
-    public String getRace() {
-        return race;
-    }
-    public int getLevel() {
-        return level;
-    }
-    public int getExp() {
-        return exp;
+    public void derrotarInimigo(Personagem Inimigo) {
+        this.setExp(this.getExp() + Inimigo.getExp());
+        this.subirLevel();
+        this.setCoins(this.getCoins() + Inimigo.getCoins());
     }
 }
