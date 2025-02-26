@@ -9,13 +9,11 @@ public class Heroi extends Personagem {
         setNome(scanner.nextLine());
 
         System.out.println("Escolha uma raça: ");
-        // Precisa ser uma classe? Da pra ser um mapa e boa boa
-        // switch case para escolher raça e criar apenas o espaço necessário 
+        System.out.println("1 - Humano | 2 - Elfo | 3 - Orc");
+        int choice = scanner.nextInt();
 
-        System.out.println("Escolha uma classe: ");
+        this.raca = Raca.escolherRaca(choice);
 
-        setVidaAtual(raca.getVidaInicial());
-        setVidaMaxima(raca.getVidaInicial());
         setLevel(1);
         setExp(0);
     }
@@ -27,8 +25,8 @@ public class Heroi extends Personagem {
             this.setLevel(this.getLevel() + 1);
 
             // Aumenta a vida máxima e soma metade da vida por lvl na vida atual
-            this.setVidaMaxima(this.getVidaMaxima() + this.raca.getVidaPorLvl());
-            this.setVidaAtual(this.getVidaAtual() + (this.raca.getVidaPorLvl() / 2));
+            // this.setVidaMaxima(this.getVidaMaxima() + this.raca.getVidaPorLvl());
+            // this.setVidaAtual(this.getVidaAtual() + (this.raca.getVidaPorLvl() / 2));
         }
     }
 
