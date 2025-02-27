@@ -3,6 +3,7 @@ public class Heroi extends Personagem {
     private int vidaPorLvl;
 
     public Heroi() {
+        setNome("");
         setLevel(1);
         setExp(0);
         setCoins(100);
@@ -32,5 +33,16 @@ public class Heroi extends Personagem {
         this.setExp(this.getExp() + Inimigo.getExp());
         this.subirLevel();
         this.setCoins(this.getCoins() + Inimigo.getCoins());
+    }
+
+    public void exibirCaracteristicas() {
+        System.out.println(
+        "FOR: " + this.getForca() + 
+        "DES: " + this.getDestreza() + 
+        "CON: " + this.getConstituicao() + 
+        "SAB: " + this.getSabedoria() + 
+        "INT: " + this.getInteligencia() + 
+        "CAR: " + this.getCarisma()
+        );
     }
 }

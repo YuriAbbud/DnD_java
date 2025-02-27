@@ -11,7 +11,14 @@ public class main {
         System.out.println("Digite o nome do Heroi: ");
         heroi.setNome(scanner.nextLine());
 
-        // Definindo raça do heroi
+        // Escolhe Caracteristicas
+        System.out.println("Escolha quais pontos colocar nas caracteristicas: ");
+        heroi.exibirCaracteristicas();
+
+        int choice = scanner.nextInt();
+
+
+        // Definindo raça do heroi - FAZER FUNÇÃO FORA DA MAIN ou na class
         System.out.println("Escolha uma raça: "); 
         int choice = scanner.nextInt();
         switch (choice) {

@@ -1,5 +1,6 @@
 public abstract class Personagem {
     private int vidaMaxima, vidaAtual, dano, exp, coins, level;
+    private int forca, destreza, constituicao, sabedoria, inteligencia, carisma = 0;
     private String nome, raca;
 
     // getters
@@ -66,6 +67,54 @@ public abstract class Personagem {
 
     public void setRaca(String raca) {
         this.raca = raca;
+    }
+
+    public int getForca() {
+        return forca;
+    }
+
+    public void setForca(int forca) {
+        this.forca = forca;
+    }
+
+    public int getDestreza() {
+        return destreza;
+    }
+
+    public void setDestreza(int destreza) {
+        this.destreza = destreza;
+    }
+
+    public int getConstituicao() {
+        return constituicao;
+    }
+
+    public void setConstituicao(int constituicao) {
+        this.constituicao = constituicao;
+    }
+
+    public int getSabedoria() {
+        return sabedoria;
+    }
+
+    public void setSabedoria(int sabedoria) {
+        this.sabedoria = sabedoria;
+    }
+
+    public int getInteligencia() {
+        return inteligencia;
+    }
+
+    public void setInteligencia(int inteligencia) {
+        this.inteligencia = inteligencia;
+    }
+
+    public int getCarisma() {
+        return carisma;
+    }
+
+    public void setCarisma(int carisma) {
+        this.carisma = carisma;
     }
 
     // funções
