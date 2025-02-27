@@ -1,6 +1,6 @@
 public abstract class Personagem {
     private int vidaMaxima, vidaAtual, dano, exp, coins, level;
-    private String nome;
+    private String nome, raca;
 
     // getters
     public int getVidaMaxima() {
@@ -29,6 +29,10 @@ public abstract class Personagem {
 
     public String getNome() {
         return this.nome;
+    }
+
+    public String getRaca() {
+        return raca;
     }
 
     // setters
@@ -60,11 +64,16 @@ public abstract class Personagem {
         this.nome = nome;
     }
 
+    public void setRaca(String raca) {
+        this.raca = raca;
+    }
+
     // funções
     public void atacar(Personagem alvo) {
         alvo.setVidaAtual(alvo.getVidaAtual() - this.dano);
         if (alvo.getVidaAtual() <= 0) {
             // Morreu
+            return;
         }
     }
 }
