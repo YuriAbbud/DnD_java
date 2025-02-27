@@ -16,18 +16,35 @@ public class main {
         int choice = scanner.nextInt();
         switch (choice) {
             case 1:
+                // Humano
                 heroi.setRaca(RacaEnum.HUMANO.getEscolhaRaca());
+                heroi.setVidaMaxima(20);
+                heroi.setVidaAtual(20);
+                heroi.setVidaPorLvl(8);
                 break;
             case 2:
-                heroi.setRaca(RacaEnum.HUMANO.getEscolhaRaca());
+                // Elfo
+                heroi.setRaca(RacaEnum.ELFO.getEscolhaRaca());
+                heroi.setVidaMaxima(20);
+                heroi.setVidaAtual(20);
+                heroi.setVidaPorLvl(8);
                 break;
             case 3:
-                heroi.setRaca(RacaEnum.HUMANO.getEscolhaRaca());
+                // Orc
+                heroi.setRaca(RacaEnum.ORC.getEscolhaRaca());
+                heroi.setVidaMaxima(20);
+                heroi.setVidaAtual(20);
+                heroi.setVidaPorLvl(8);
                 break;
             case 4:
-                heroi.setRaca(RacaEnum.HUMANO.getEscolhaRaca());
+                // Anão
+                heroi.setRaca(RacaEnum.ANAO.getEscolhaRaca());
+                heroi.setVidaMaxima(20);
+                heroi.setVidaAtual(20);
+                heroi.setVidaPorLvl(8);
                 break;
             default:
+                // Escolha inválida, volta pro Escolha uma raça;
                 break;
         }
         

@@ -1,13 +1,19 @@
-import  java.util.Scanner;
 
 public class Heroi extends Personagem {
-    Scanner scanner = new Scanner(System.in);
+    private int vidaPorLvl;
 
     public Heroi() {
-        setVidaAtual(20);
-        setVidaMaxima(20);
         setLevel(1);
         setExp(0);
+        setCoins(100);
+    }
+
+    public int getVidaPorLvl() {
+        return vidaPorLvl;
+    }
+
+    public void setVidaPorLvl(int vidaPorLvl) {
+        this.vidaPorLvl = vidaPorLvl;
     }
 
     public void subirLevel() {
@@ -17,8 +23,8 @@ public class Heroi extends Personagem {
             this.setLevel(this.getLevel() + 1);
 
             // Aumenta a vida máxima e soma metade da vida por lvl na vida atual
-            this.setVidaMaxima(this.getVidaMaxima() + 10);
-            this.setVidaAtual(this.getVidaAtual() + (10 / 2));
+            this.setVidaMaxima(this.getVidaMaxima() + this.getVidaPorLvl());
+            this.setVidaAtual(this.getVidaAtual() + (this.getVidaPorLvl() / 2));
         }
     }
 
